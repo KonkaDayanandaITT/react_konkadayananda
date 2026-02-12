@@ -69,10 +69,13 @@ export default function App(){
   if(currentFilter === "pending")
     filteredTodos = filteredTodos.filter(t => !t.completed);
 
+  const clearAllTodos =()=>{ 
+      setTodos([]);
+  }
   return(
     <div className="container">
       <h2>Todo App</h2>
-
+      
       <TodoForm
         text={text}
         setText={setText}
@@ -81,7 +84,7 @@ export default function App(){
       />
 
       <SearchBar setSearchText={setSearchText} />
-
+      <button onClick={clearAllTodos}>deleteAll</button>
       <Filters setCurrentFilter={setCurrentFilter} />
 
       <TodoList
